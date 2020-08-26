@@ -3,15 +3,51 @@
 		<link rel="stylesheet" type="text/css" href="interface.css" />
 	</head>
 	<body>
-		<button onclick="cookieClick(1)">Click Me!</button>
+		<div class="bannerInfo">
+			<p style="font-size:24px;"><i>No honour amongst thieves? We shall see...</i></p>
+			<span>Gold:</span>
+			<span id="gold">0</span>
+		</div>
 		<br />
-		Cookies: <span id="cookies">0</span>
+		<ul></ul>
+		<ul id = "grid" class="clear">
+		  <li>
+			  <div class="hexagon" onclick="buy('urchin')"> 
+				<p>
+					<span >Urchins: </span>
+					<span id="urchinNumber">0</span>
+					<br>
+					<span>Cost:</span>
+					<span id="urchinCost">10</span> 
+				</p>
+			</div>
+		  </li>
+		  <li>
+			  <div class="hexagon"> <p>TaDa</p> </div>
+		  </li>
+		  <li>
+			  <div class="hexagon"><p>Try This</p> </div>
+		  </li>
+		  <li>
+			  <div class="hexagon"><p>Try That</p> </div>
+		  </li>
+		  <li>
+			  <div class="hexagon"><p>I love you</p> </div>
+		  </li>
+		  <li>
+			  <div class="hexagon"><p>Buzz Buzz</p></div>
+		  </li>
+		  <li>
+			  <div class="hexagon"><p>Sarah</p></div>
+		  </li>
+		  <li>
+		  <a href="Contact.html">
+			  <div class="hexagon"><p>Contact</p></div>
+		  </a>
+		  </li>
+	  </ul>
 		<br />
-		<button onclick="buyCursor()">Buy Cursor</button>
-		<br />
-		Cursors: <span id="cursors">0</span>
-		<br />
-		Cursor Cost: <span id="cursorCost">10</span>
-		<script type="text/javascript" src="main.js"></script>
+		
 	</body>
+	<script type="text/javascript" src="main.js"></script>
 </html>
