@@ -15,6 +15,16 @@ class Faction {
     incOwned = function() {
         this.owned+=1;
     }
+
+    buy = function() {
+        if(ThievesGuild.gold >= this.cost){                                   //checks that the player can afford the cursor
+            this.incOwned()                                   //increases number of cursors
+            ThievesGuild.gold = ThievesGuild.gold - this.cost;                          //removes the cookies spent
+            document.getElementById('gold').innerHTML = ThievesGuild.gold;
+            this.cost = Math.floor(10 * Math.pow(1.1,ThievesGuild.urchins.owned));  //updates the number of cookies for the user
+            ThievesGuild.draw();
+        };
+    }
 }
 
 ThievesGuild.begin=function() {
@@ -29,24 +39,13 @@ ThievesGuild.begin=function() {
         document.getElementById("gold").innerHTML = ThievesGuild.gold; 
     }
 
-    ThievesGuild.buy = function(obj){
-        console.log(obj)
-        if(ThievesGuild.gold >= ThievesGuild.urchins.cost){                                   //checks that the player can afford the cursor
-            ThievesGuild.urchins.owned = ThievesGuild.urchins.owned + 1;                                   //increases number of cursors
-            ThievesGuild.gold = ThievesGuild.gold - ThievesGuild.urchins.cost;                          //removes the cookies spent
-            document.getElementById('gold').innerHTML = ThievesGuild.gold;
-            ThievesGuild.urchins.cost = Math.floor(10 * Math.pow(1.1,ThievesGuild.urchins.owned));  //updates the number of cookies for the user
-            ThievesGuild.draw();
-        };
-    };
-
     ThievesGuild.draw=function() {
         ThievesGuild.drawButton(ThievesGuild.urchins)
         ThievesGuild.drawn = 1;
     }
 
     ThievesGuild.drawButton=function(faction) {
-        var buttonStr = "<li> <div class=\"hexagon\" onclick='ThievesGuild.buy(\"" +faction.name+" \")'> <p> <span >" 
+        var buttonStr = "<li> <div class=\"hexagon\" onclick='ThievesGuild."+ faction.name +".buy(\"" +faction.name+" \")'> <p> <span >" 
                         +faction.name+": </span> <span id=\""+faction.name+"Number\">"+ faction.owned +"</span><br><span>Cost:</span><span id=\""
                         +faction.name+"Cost\">"
                         +faction.cost+"</span> </p></div></li>";
@@ -55,10 +54,6 @@ ThievesGuild.begin=function() {
 }
 
 ThievesGuild.begin();
-
-function buy(obj) {
-    ThievesGuild.buy(obj)
-}
 
 window.setInterval(function(){
     if(ThievesGuild.drawn !=1){
