@@ -65,7 +65,7 @@
 #grid li .hexagon p{
 	text-align: center;
 	font-size: 3vw;
-	color: black;
+    color: black;
 	top: 40%;
 	position: relative;
 }
