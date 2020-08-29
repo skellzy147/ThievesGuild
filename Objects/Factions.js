@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export default class Faction {
     constructor(name, cost, owned, mult) {
     this.name = name;
@@ -6,11 +7,11 @@ export default class Faction {
     this.mult = mult;
     }
 
-    setMult = function(mul) {
-        this.mult = mult;
+    setMult(mul) {
+        this.mult = mul;
     } 
 
-    incOwned = function() {
+    incOwned() {
         this.owned+=1;
     }
 }
