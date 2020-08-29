@@ -2,7 +2,7 @@
     "scripts": {
         "start": "npm run lint && npm run serve",
         "lint": "eslint **/*.js",
-        "serve": "npx http-server -c -1"
+        "serve": "http-server -c -1"
     },
     "devDependencies": {
         "csslint": "^1.0.5",
@@ -10,5 +10,8 @@
         "htmllint": "^0.8.0",
         "jshint": "^2.12.0",
         "lint": "^0.7.0"
+    },
+    "dependencies": {
+        "http-server": "^0.12.3"
     }
 }
