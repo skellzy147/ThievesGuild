@@ -5,7 +5,7 @@
         "serve": "http-server -c -1"
     },
     "devDependencies": {
-        "eslint": "^7.7.0",
+        "eslint": "^7.7.0"
     },
     "dependencies": {
         "http-server": "^0.12.3"
