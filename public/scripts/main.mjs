@@ -15,31 +15,38 @@ ThievesGuild.begin = function() {
   
   ThievesGuild.initializeFactionObjects = function() {
     ThievesGuild.urchins = new Faction("urchins", 0, 0, 1.0, 1);
+    ThievesGuild.pickpockets = new Faction("pickpockets", 50, 0, 1.0, 5)
     ThievesGuild.Factions.push(ThievesGuild.urchins);
+    ThievesGuild.Factions.push(ThievesGuild.pickpockets);
   };
 
   ThievesGuild.initializeFactionObjects();
 
-  //* Get Gold (TODO: Update to Get GPS)
+  //* Get Gold
+  // TODO: Recalculate GPS
   ThievesGuild.getGold = function() {
+    var GPS = 0;
     for (var objIndex in ThievesGuild.Factions) {
-      ThievesGuild.gold += ThievesGuild.Factions[objIndex].calculateGPS();
+      GPS += ThievesGuild.Factions[objIndex].calculateGPS();
     }
+    ThievesGuild.gold += GPS;
+    document.getElementById("gps").innerHTML = GPS;
     document.getElementById("gold").innerHTML = ThievesGuild.gold;
   };
 
   //* Draw Actual UI
   ThievesGuild.draw = function() {
+    var buttonStr = '';
     for (var objIndex in ThievesGuild.Factions) {
-      ThievesGuild.drawButton(ThievesGuild.Factions[objIndex]);
+      buttonStr += ThievesGuild.drawButton(ThievesGuild.Factions[objIndex]);
     }
+    document.getElementById("grid").innerHTML = buttonStr;
     ThievesGuild.drawn = 1;
   };
 
   //* Add buttons for each faction
   ThievesGuild.drawButton = function(faction) {
-    var buttonStr =
-      '<li> <div class="hexagon" onclick=\'ThievesGuild.' +
+    return '<li> <div class="hexagon" onclick=\'ThievesGuild.' +
       faction.name +
       '.buy("' +
       faction.name +
@@ -54,7 +61,7 @@ ThievesGuild.begin = function() {
       'Cost">' +
       faction.cost +
       "</span> </p></div></li>";
-    document.getElementById("grid").innerHTML = buttonStr;
+    
   };
 };
 

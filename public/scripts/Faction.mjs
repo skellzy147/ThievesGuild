@@ -32,7 +32,7 @@ export default class Faction {
         document.getElementById("gold").innerHTML = ThievesGuild.gold;
         this.cost = Math.floor(10 * Math.pow(1.1, ThievesGuild.urchins.owned));
   
-        //TODO: update specific button instead of redrawing?
+        //TODO: UPDATE BUTTON? ADD ID? FIELD? Much to think about...
         ThievesGuild.draw();
       }
     }

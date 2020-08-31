@@ -1,7 +1,7 @@
 {
     "scripts": {
         "start": "npm run lint && npm run serve",
-        "lint": "eslint \"scripts/**\"",
+        "lint": "eslint \"public/scripts/**\"",
         "serve": "http-server -c -1"
     },
     "devDependencies": {
