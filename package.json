@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "start": "npm run lint && npm run serve",
+        "start": "npm run lint && npm run test && npm run serve",
         "lint": "eslint \"public/scripts/**\"",
         "serve": "http-server -c -1",
         "test": "jest"
