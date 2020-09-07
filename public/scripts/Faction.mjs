@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-export default class Faction {
+class Faction {
     constructor(name, cost, owned, mult, earns) {
       this.name = name;
       this.cost = cost;
@@ -24,6 +24,7 @@ export default class Faction {
     }
   
     //? Only buys 1 for now
+    //TODO move this logic out
     //* Specific buy function for each faction
     buy() {
       if (ThievesGuild.gold >= this.cost) {
@@ -41,3 +42,4 @@ export default class Faction {
       return this.earns * this.owned * this.mult;
     }
   }
+export { Faction }

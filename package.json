@@ -2,10 +2,20 @@
     "scripts": {
         "start": "npm run lint && npm run serve",
         "lint": "eslint \"public/scripts/**\"",
-        "serve": "http-server -c -1"
+        "serve": "http-server -c -1",
+        "test": "jest"
     },
     "devDependencies": {
-        "eslint": "^7.7.0"
+        "@babel/core": "^7.11.6",
+        "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+        "@babel/preset-env": "^7.11.5",
+        "babel-jest": "^26.3.0",
+        "eslint": "^7.7.0",
+        "jest": "^26.4.2",
+        "requirejs": "^2.3.6"
+    },
+    "jest": {
+        "transform": {".*": "<rootDir>/node_modules/babel-jest"}
     },
     "dependencies": {
         "http-server": "^0.12.3"

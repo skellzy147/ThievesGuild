@@ -1,6 +1,6 @@
 //*-------------Game Object------------------
 //? For module try setting to global?
-import Faction from './Faction.mjs'
+import { Faction } from './Faction.mjs'
 
 var ThievesGuild = {};
 
