@@ -1,33 +1,41 @@
 //* Draw Actual UI
 function draw(document, factions) {
-  var buttonStr = "";
+  //var buttonStr = "";
   for (var objIndex in factions) {
-    buttonStr += drawButton(factions[objIndex]);
+    //buttonStr += drawButton(factions[objIndex]);
+    if (document.getElementById(factions[objIndex].name) != null) {
+      var element = document.getElementById(factions[objIndex].name);
+      element.parentNode.removeChild(element);
+    }
+    document
+      .getElementById("grid")
+      .appendChild(drawButton(factions[objIndex]));
   }
-  document.getElementById("grid").innerHTML = buttonStr;
+  //document.getElementById("grid").innerHTML = buttonStr;
   return 1;
 }
 
-//* Add buttons for each faction
+function newButton(faction) {
+  const newDiv = document.createElement("div");
+  newDiv.setAttribute("class", "factionButton");
+  newDiv.setAttribute("id", faction.name);
+  newDiv.onclick = function() {
+    faction.buy();
+  };
+  return newDiv;
+}
+function newTextSection(label, attr) {
+  const text = document.createElement("div");
+  text.setAttribute("class", "textSection")
+  text.innerHTML = label + attr + "\t";
+  return text;
+}
 function drawButton(faction) {
-  console.log(faction);
-  return (
-    '<li> <div class="hexagon" onclick=\'ThievesGuild.' +
-    faction.name +
-    '.buy("' +
-    faction.name +
-    " \")'> <p> <span >" +
-    faction.getName() +
-    ': </span> <span id="' +
-    faction.name +
-    'Number">' +
-    faction.owned +
-    '</span><br><span>Cost:</span><span id="' +
-    faction.name +
-    'Cost">' +
-    faction.cost +
-    "</span> </p></div></li>"
-  );
+  const newDiv = newButton(faction);
+  newDiv.appendChild(newTextSection("", faction.getName()));
+  newDiv.appendChild(newTextSection("OWNED: ", faction.owned));
+  newDiv.appendChild(newTextSection("COST: ", faction.cost));
+  return newDiv;
 }
 
-export { draw }
+export { draw };

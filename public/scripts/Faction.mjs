@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+import { ThievesGuild } from './main.mjs'
 class Faction {
     constructor(name, cost, owned, mult, earns) {
       this.name = name;
@@ -33,7 +34,6 @@ class Faction {
         document.getElementById("gold").innerHTML = ThievesGuild.gold;
         this.cost = Math.floor(10 * Math.pow(1.1, ThievesGuild.urchins.owned));
   
-        //TODO: UPDATE BUTTON? ADD ID? FIELD? Much to think about...
         ThievesGuild.drawn = 0;
       }
     }

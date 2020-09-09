@@ -65,3 +65,5 @@ window.setInterval(function() {
     ThievesGuild.getGold();
   }
 }, 250);
+
+export { ThievesGuild }
