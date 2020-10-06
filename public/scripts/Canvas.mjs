@@ -20,7 +20,7 @@ function newButton(faction) {
   newDiv.setAttribute("class", "factionButton");
   newDiv.setAttribute("id", faction.name);
   newDiv.onclick = function() {
-    faction.buy();
+    faction.buy(1);
   };
   return newDiv;
 }
@@ -35,6 +35,7 @@ function drawButton(faction) {
   newDiv.appendChild(newTextSection("", faction.getName()));
   newDiv.appendChild(newTextSection("OWNED: ", faction.owned));
   newDiv.appendChild(newTextSection("COST: ", faction.cost));
+  newDiv.appendChild(newTextSection("EARNS: ", faction.earns))
   return newDiv;
 }
 

@@ -20,9 +20,11 @@ ThievesGuild.begin = function() {
     ThievesGuild.urchins = new Faction("urchins", 1, 0, 1.0, 1);
     ThievesGuild.pickpockets = new Faction("pickpockets", 50, 0, 1.0, 5);
     ThievesGuild.brutes = new Faction("brutes", 150, 0, 1.0, 10);
+    ThievesGuild.graverobbers = new Faction("grave Robbers", 500, 0, 1.0, 25)
     ThievesGuild.Factions.push(ThievesGuild.urchins);
     ThievesGuild.Factions.push(ThievesGuild.pickpockets);
     ThievesGuild.Factions.push(ThievesGuild.brutes);
+    ThievesGuild.Factions.push(ThievesGuild.graverobbers);
   };
 
   ThievesGuild.initializeFactionObjects();

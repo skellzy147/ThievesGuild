@@ -35,7 +35,11 @@
 
 .textSection { 
     display: inline-block;
-    padding: 5px;
+    padding: 10px;
+    border: solid 1px black;
+    margin-left: 5px;
+    margin-right: 5px;
+    position: inline;
 }
 
 .clear:after {

@@ -5,6 +5,7 @@ class Faction {
     constructor(name, cost, owned, mult, earns) {
       this.name = name;
       this.cost = cost;
+      this.basecost = cost;
       this.owned = owned;
       this.mult = mult;
       this.earns = earns;
@@ -27,13 +28,12 @@ class Faction {
     //? Only buys 1 for now
     //TODO move this logic out
     //* Specific buy function for each faction
-    buy() {
+    buy(number) {
       if (ThievesGuild.gold >= this.cost) {
-        this.incOwned(1);
+        this.incOwned(number);
         ThievesGuild.gold = ThievesGuild.gold - this.cost;
         document.getElementById("gold").innerHTML = ThievesGuild.gold;
-        this.cost = Math.floor(10 * Math.pow(1.1, ThievesGuild.urchins.owned));
-  
+        this.cost = Math.floor(this.basecost * Math.pow(1.08, this.owned));
         ThievesGuild.drawn = 0;
       }
     }
